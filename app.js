@@ -79,7 +79,6 @@ Fruit.find(function(err, fruits) {
   if (err) {
     console.log(err);
   } else {
-    mongoose.connection.close() // to Shut down the server no error and ehat we to get after getting this close method should be called thats it this is good practise 
     fruits.forEach(function(fruit){
     console.log(fruit.name);
     });
@@ -91,7 +90,6 @@ Person.find(function(err, people) {
     console.log(err);
   } else {
     mongoose.connection.close() // to Shut down the server no error and ehat we to get after getting this close method should be called thats it this is good practise  .
-
     people.forEach(function(person){
     console.log(person.name);
     });
