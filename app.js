@@ -13,7 +13,7 @@ const fruit = new Fruit({
 });
 
 
-// fruit.save();
+// fruit.save(); for every time savings it will vreate the same data thats why after first  execution its in comment
 
 const PersonsSchema = new mongoose.Schema({
   name: String,
@@ -25,7 +25,7 @@ const person = new Person({
   name: "John Doe",
   age: 37
 })
-// person.save();
+// person.save(); for every time savings it will vreate the same data thats why after first  execution its in comment
 
 // Bulk insert
 
@@ -46,7 +46,7 @@ const kiwi = new Fruit({
   review: "Best"
 })
 
-// Fruit.insertMany([banana, orange, kiwi], function(error){
+// Fruit.insertMany([banana, orange, kiwi], function(error){ for every time savings it will vreate the same data thats why after first  execution its in comment
 //   if (error){
 //     console.log(error);
 //   }else{
@@ -67,7 +67,7 @@ const rahim = new Person({
   name: "Rahim",
   age: 22
 })
-// Person.insertMany([asif, rahul, rahim], function(error){
+// Person.insertMany([asif, rahul, rahim], function(error){ // for every time savings it will vreate the same data thats why after first  execution its in comment
 //   if(error){
 //     console.log(error);
 //   }else{
@@ -95,3 +95,24 @@ Person.find(function(err, people) {
     });
   }
 });
+
+// Data Validation Using Mongoose
+
+const VeggiSchema = new mongoose.Schema({
+  name : String,
+  rating: {
+    type: Number,
+    min:1,
+    max:10
+  },
+  review: String
+
+});
+
+const Veggi = mongoose.model("veggi", VeggiSchema);
+const veggi = new Veggi({
+  name: "Bitter guard",
+  rating: 0,
+  review : " Bitter to Taste! "
+});
+veggi.save();
